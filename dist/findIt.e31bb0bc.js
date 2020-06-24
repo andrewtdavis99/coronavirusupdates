@@ -126,7 +126,7 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = void 0;
 var _default = {
   search: function search(searchTerm, SearchLimit, sortBy) {
-    return fetch('https://www.reddit.com/r/coronavirus.json').then(function (res) {
+    return fetch('https://www.reddit.com/r/coronavirus.json?limit=100').then(function (res) {
       return res.json();
     }).then(function (data) {
       return data.data.children.map(function (data) {
@@ -145,79 +145,19 @@ var _redditapi = _interopRequireDefault(require("./redditapi"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var searchForm = document.getElementById('search-form');
-var searchInput = document.getElementById('search-input'); // // Form event listener
-// searchForm.addEventListener('onload', e => {
-//     // Get search term
-//     const searchTerm = searchInput.value;
-//     // Get sort
-//     const sortBy = document.querySelector('input[name="sortby"]:checked').value;
-//     // Get limit
-//     const searchLimit = document.getElementById('limit').value;
-//     // Check input
-//     if (searchTerm === '') {
-//         showMessage('Please add a search term', 'alert-danger');
-//     }
-//     // Clear input
-//     searchInput.value = '';
-//     // Search reddit
-//     reddit.search(searchTerm, searchLimit, sortBy)
-//         .then(results => {
-//             console.log(results)
-//             let output = '<div class="row">';
-//             // Loop through
-//             results.forEach(post => {
-//                 // Check for image
-//                 const image = post.preview ? post.preview.images[0].source.url : 'https://www.medela.com/.imaging/mte/medela-2018/content/dam/medela-com/breastfeeding-consumer/pictures/stage/desktop/1400_788.jpg/jcr:content/1400_788.jpg';
-//                 output += `
-//                 <div class="col-sm-4">
-//                <div class="card">
-//                 <img src="${image}" class="card-img-top" alt="...">
-//                 <div class="card-body">
-//                     <h5 class="card-title">${post.title}</h5>
-//                     <p class="card-text">${truncateText(post.selftext,100)}</p>
-//                     <a href="${post.url}" target='_blank' class="btn btn-primary">Read More</a>
-//                 </div>
-//                 </div>
-//                 </div>
-//                `;
-//             })
-//             output += '</div> ';
-//             document.getElementById('results').innerHTML = output;
-//         });
-//     e.preventDefault();
-// });
-//  <p class="card-text">${truncateText(post.selftext,100)}</p>
 // Search reddit
-
 _redditapi.default.search().then(function (results) {
   console.log(results);
   var output = '<div class="row">'; // Loop through
 
   results.slice(2).forEach(function (post) {
     // Check for image
-    var image = post.preview ? post.preview.images[0].source.url : 'https://www.medela.com/.imaging/mte/medela-2018/content/dam/medela-com/breastfeeding-consumer/pictures/stage/desktop/1400_788.jpg/jcr:content/1400_788.jpg';
-    output += "\n         <div class=\"col-lg-6 col-md-6 mb-4\">\n        <div class=\"card\">\n         <img src=\"".concat(image, "\" class=\"card-img-top\" alt=\"...\" style =\"max-height: 285px;\">\n         <div class=\"card-body\">\n             <h5 class=\"card-title\" style =\"height: 96px;\">").concat(truncateText(post.title, 200), "</h5>\n            \n             <a href=\"").concat(post.url, "\" target='_blank' class=\"btn btn-primary\">Read More</a>\n         </div>\n         </div>\n         </div>\n        ");
+    var image = post.preview ? post.preview.images[0].source.url : 'https://cdn.pixabay.com/photo/2020/04/21/07/57/corona-5071972_960_720.jpg';
+    output += "\n         <div class=\"col-lg-6 col-md-6 mb-4\">\n        <div class=\"card\">\n         <img src=\"".concat(image, "\" class=\"card-img-top\" alt=\"...\" style =\"max-height: 285px;\">\n         <div class=\"card-body\">\n             <h6 class=\"card-title\" style =\"height: 96px;\">").concat(truncateText(post.title, 150), "</h6>\n            \n             <a href=\"").concat(post.url, "\" target='_blank' class=\"btn btn-outline-secondary\">Read More</a>\n         </div>\n         </div>\n         </div>\n        ");
   });
   output += '</div> ';
   document.getElementById('results').innerHTML = output;
-}); // //Show message
-// function showMessage(message, className) {
-//     const div = document.createElement('div');
-//     //add classes
-//     div.className = `alert ${className}`;
-//     // Add text
-//     div.appendChild(document.createTextNode(message));
-//     //Get parent
-//     const searchContainer = document.getElementById('search-container');
-//     // Get search
-//     const search = document.getElementById('search');
-//     // Insert message
-//     searchContainer.insertBefore(div, search);
-//     // Time out alert
-//     setTimeout(() => document.querySelector('.alert').remove(), 3000);
-// };
-// Truncate text
+}); // Truncate text
 
 
 function truncateText(text, limit) {
@@ -253,7 +193,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50637" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53964" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
