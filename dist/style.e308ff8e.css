@@ -3,6 +3,14 @@
     height: 60px;
     background: lightgrey;
     margin: 20px auto;
+    text-align: center;
+}
+
+.title {
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    font-size: x-large;
+    color: lavender;
 }
 
 /*# sourceMappingURL=/style.e308ff8e.css.map */
