@@ -1,0 +1,1 @@
+{"version":3,"sources":["style.css"],"names":[],"mappings":"AAAA,QACI,SAAU,CACV,WAAY,CACZ,kBAAqB,CACrB,gBACJ","file":"style.8e4d6d48.css","sourceRoot":"..","sourcesContent":[".advert {\r\n    width: 90%;\r\n    height: 60px;\r\n    background: lightgrey;\r\n    margin: 20px auto;\r\n}"]}
